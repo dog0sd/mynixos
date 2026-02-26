@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+
+selected_sink=$(pw-dump | jq -r '.[] | select(.type == "PipeWire:Interface:Node") | select(.info.props."media.class" == "Audio/Sink") | "\(.id) \(.info.props."node.description")"' \
+  | fuzzel --dmenu -l 4 -p "Sinks: " | cut -d ' ' -f1)
+
+echo $selected_sink
+
+wpctl set-default $selected_sink

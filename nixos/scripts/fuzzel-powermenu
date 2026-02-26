@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+choice=$(echo -e "Shutdown\nReboot\nLogout\nSuspend\nLock\nCancel" | fuzzel --dmenu -p "Power: ")
+
+case "$choice" in
+    Shutdown)
+        systemctl poweroff
+        ;;
+    Reboot)
+        systemctl reboot
+        ;;
+    Logout)
+        niri msg action quit
+        ;;
+    Suspend)
+        systemctl suspend
+        ;;
+    Lock)
+        loginctl lock-session
+        ;;
+    Cancel)
+        exit 0
+        ;;
+    *)
+        exit 0
+        ;;
+esac
+

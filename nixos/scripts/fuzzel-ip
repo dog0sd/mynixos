@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+
+selected=$(printf "public ipv4\nprivate ip" | fuzzel --dmenu -l 3 -p "choose IP: " | tr -d '\n')
+
+case "$selected" in
+  "public ipv4")
+    IP=$(curl ifconfig.me | tr -d '\n' | tr -d '\r')
+    wl-copy $IP
+    ;;
+  "private ip")
+    IP=$(ip addr show dev wlp0s20f3 | rg 'inet ' | awk '{print $2}' | tr -d '\n')
+    wl-copy $IP
+    ;;
+  *)
+    ;;
+esac
+
+exit
+
