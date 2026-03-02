@@ -41,6 +41,7 @@
     azure-cli-extensions.ad
     awscli2
     flyctl
+    yandex-cloud
 
   ];
 

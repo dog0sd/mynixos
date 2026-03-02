@@ -33,6 +33,10 @@
     whois
     lsof
     bandwhich
+    sysstat
+    iotop
+    ethtool
+    httrack
 
 
     unzip
