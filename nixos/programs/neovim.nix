@@ -356,7 +356,7 @@
       vim-nix                   # Nix
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       -- General settings
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "

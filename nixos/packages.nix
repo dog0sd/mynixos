@@ -25,7 +25,7 @@
     nmap
     wifite2
     aircrack-ng
-    wordlists
+
     netdiscover
     hping
     gobuster
